@@ -52,19 +52,19 @@ you need to manually download the data from Kaggle
 and placed them under ``data/favorita``. 
 
 
-1. Hourly electricity consumption dataset (source UCI ML repository - https://archive.ics.uci.edu/dataset/204/pems+sf) 
-`python -m train.py --dataset electricity --epochs 50 --n_enc_steps 168
+1. Hourly electricity consumption dataset (source UCI ML repository) 
+`python train.py --dataset electricity --epochs 50 --n_enc_steps 168
 --n_dec_steps 24 --d_model 8 --log_dir logs --clip_value 2 --batch_sz 64 
 --lr 0.001 --dropout_rate 0.2 --optimizer adamw
 `
 
-2. Run traffic dataset (source UCI ML repository)
-`--dataset traffic --epochs 50 --n_enc_steps 252 --n_dec_steps 25
+2. Run traffic dataset (source UCI ML repository - https://archive.ics.uci.edu/dataset/204/pems+sf)
+`python train.py --dataset traffic --epochs 50 --n_enc_steps 252 --n_dec_steps 25
 --d_model 16 --log_dir logs --clip_value 2 --batch_sz 64
 --lr 0.001 --optimizer adamw`
 
 3. Run favorita dataset 
-`--dataset favorita --epochs 50 --n_enc_steps 60 --n_dec_steps 20 
+`python train.py --dataset favorita --epochs 50 --n_enc_steps 60 --n_dec_steps 20 
 --d_model 64 --log_dir logs --clip_value 2 --batch_sz 64 --lr 0.001 --optimizer adamw`
 
 
