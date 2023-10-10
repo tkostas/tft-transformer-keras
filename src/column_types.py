@@ -1,0 +1,12 @@
+from enum import Enum
+
+
+class ValueTypes(Enum):
+    TARGET = 0
+    KNOWN_NUMERIC = 1
+    KNOWN_CATEGORICAL = 2
+    UNKNOWN_NUMERIC = 3
+    UNKNOWN_CATEGORICAL = 4
+    STATIC_NUMERIC = 5
+    STATIC_CATEGORICAL = 6
+    EXAMPLE_ID = 7

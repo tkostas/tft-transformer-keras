@@ -1,0 +1,11 @@
+tensorflow>=2.13
+pandas
+numpy
+tqdm
+scikit-learn
+pyunpack
+wget
+matplotlib
+seaborn
+patool
+py7zr
