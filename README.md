@@ -94,7 +94,7 @@ Model training arguments:
                     Optimizer name. See Keras docs for available options. (default: `sgd`)
 * `--masked_value`  Optionally, you can ignore certain values during loss 
                     calculation. For example, if your training data have variable 
-                    forecast horizon, you can "pad" the encoder time steps with a fixed 
+                    forecast horizon, you can "pad" the decoder time steps with a fixed 
                     value and mask the padded time-steps during loss calculation. 
 
 Model evaluation arguments:

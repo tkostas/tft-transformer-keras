@@ -116,7 +116,7 @@ training_args.add_argument(
     default=None,
     help='Optionally, you can ignore certain values during loss '
          'calculation. For example, if your training data have variable '
-         'forecast horizon, you can "pad" the encoder time steps with a '
+         'forecast horizon, you can "pad" the decoder time-steps with a '
          'fixed value and mask the padded time-steps during loss calculation.',
     type=float
 )
