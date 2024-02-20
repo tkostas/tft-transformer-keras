@@ -260,7 +260,8 @@ class AbstractDataset:
 
     def _data_exists(self) -> bool:
         dataset_fp = os.path.join(Paths.data_base_dir, self.name)  # type: ignore
-        return os.path.exists(dataset_fp)
+        # Fixes: a bug where it just checks if the path exists, it should list dirs and check if there is anything in it
+        return len(os.listdir(dataset_fp)) != 0
 
     def _make_dataset_dir(self) -> Any:
         dataset_fp = os.path.join(Paths.data_base_dir, self.name)  # type: ignore
