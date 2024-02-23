@@ -12,9 +12,10 @@ def save_weights_and_inference_model(model, config):
         dataset_name=config.dataset, model_version=config.model_version
     )
     model_weights_dir = os.path.join(
-        base_out_dir, "model_weights", f"{config.model_version}/model_weights"
+        base_out_dir, 'model_weights', f'{config.model_version}/model_weights'
     )
-    export_dir = os.path.join(base_out_dir, "exported_model", str(config.model_version))
+    export_dir = os.path.join(
+        base_out_dir, 'exported_model', str(config.model_version))
     model.save_weights(model_weights_dir)
     model.export(export_dir)  # use model.serve(x) for inference
 
@@ -41,10 +42,10 @@ def build_model(config, dset, x_train):
     model.build(input_shape=x_train.shape)
     if config.load_model_weights is not None:
         weights_path = config.load_model_weights
-        if weights_path.endswith("/"):
+        if weights_path.endswith('/'):
             weights_path = weights_path[:-1]
-        weights_fp = weights_path + "/model_weights"
-        print(f"Loading model weights from: {weights_fp}")
+        weights_fp = weights_path + '/model_weights'
+        print(f'Loading model weights from: {weights_fp}')
         model.load_weights(weights_fp)
 
     callbacks = []
@@ -60,27 +61,28 @@ def build_model(config, dset, x_train):
     ).quantile_loss
 
     losses = {
-        "y": quantile_loss,
-        "attn_w": zeros_loss_fn,
-        "h_w": zeros_loss_fn,
-        "f_w": zeros_loss_fn,
-        "s_w": zeros_loss_fn,
+        'y': quantile_loss,
+        'attn_w': zeros_loss_fn,
+        'h_w': zeros_loss_fn,
+        'f_w': zeros_loss_fn,
+        's_w': zeros_loss_fn,
     }
     optimizer_factory = {
-        "sgd": tf.optimizers.SGD,
-        "rmsprop": tf.optimizers.RMSprop,
-        "adam": tf.optimizers.Adam,
-        "adamw": tf.optimizers.AdamW,
-        "adagrad": tf.optimizers.Adagrad,
-        "adamax": tf.optimizers.Adamax,
-        "adafactor": tf.optimizers.Adafactor,
-        "nadam": tf.optimizers.Nadam,
-        "ftrl": tf.optimizers.Ftrl,
+        'sgd': tf.optimizers.SGD,
+        'rmsprop': tf.optimizers.RMSprop,
+        'adam': tf.optimizers.Adam,
+        'adamw': tf.optimizers.AdamW,
+        'adagrad': tf.optimizers.Adagrad,
+        'adamax': tf.optimizers.Adamax,
+        'adafactor': tf.optimizers.Adafactor,
+        'nadam': tf.optimizers.Nadam,
+        'ftrl': tf.optimizers.Ftrl,
     }
     optimizer = optimizer_factory[config.optimizer](
         learning_rate=config.lr, clipnorm=config.clip_norm, clipvalue=config.clip_value
     )
-    model.compile(optimizer=optimizer, loss=losses, sample_weight_mode="temporal")
+    model.compile(optimizer=optimizer, loss=losses,
+                  sample_weight_mode='temporal')
 
     model.summary()
     return callbacks, model
