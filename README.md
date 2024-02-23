@@ -1,6 +1,6 @@
 # Temporal Fusion Transformer (TFT) - Keras implementation
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rohanmohapatra/tft-transformer-keras/blob/master/TFT_Transformer_Keras.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tkostas/tft-transformer-keras/blob/master/TFT_Transformer_Keras.ipynb)
 
 This is a refactoring of TFT transformer implementation
 (see https://github.com/greatwhiz/tft_tf2), with minor modifications,
