@@ -4,6 +4,7 @@ from src.config import Config
 from src.datasets.managers import datasets_factory
 from src.eval import quick_evaluation
 from src.plots import plot_history, plot_examples
+from src.test_utils import calculate_forecasts
 from src.train_utils import build_model, save_weights_and_inference_model
 
 parser = argparse.ArgumentParser(
@@ -193,6 +194,14 @@ def main():
                   tag='test',
                   plot_n_samples=config.n_samples_to_plot,
                   plot_attn_weights=config.plot_attn_weights)
+
+    q_risk_scores = calculate_forecasts(dataset=dset,
+                                        config=config,
+                                        x_test=x_test,
+                                        y_test=y_test,
+                                        y_pred=model.predict(x_test)['y'])
+    print('P50: {}, P90: {}'.format(
+        q_risk_scores['p50'], q_risk_scores['p90']))
 
 
 if __name__ == '__main__':
