@@ -2,9 +2,12 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tkostas/tft-transformer-keras/blob/master/TFT_Transformer_Keras.ipynb)
 
+**NOTE** keras >= 3.0 installed with tf 2.16+ introduces breaking changes.
+Maximum allowed version for keras is 2.15. 
+
 This is a refactoring of TFT transformer implementation
 (see https://github.com/greatwhiz/tft_tf2), with minor modifications,
-using Keras, Tensorflow >= 2.13.0 and python >= 3.10.
+using Keras, Tensorflow >= 2.13.0 and <= 2.15.1 and python >= 3.10.
 
 Goal of this repository is to provide a proof of concept, which you
 might adapt to make it working for your dataset. The model instance
@@ -48,7 +51,8 @@ For model inference, you can use the exported model and run inference using the
 ## Requirements
 
 - python >= 3.10
-- tensorflow >= 2.13.0
+- tensorflow >= 2.13.0, <=2.15.1
+- keras <= 2.15.0
 
 ## Running examples
 
