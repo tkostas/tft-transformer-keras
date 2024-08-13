@@ -691,7 +691,7 @@ class TFTTransformer(tf.keras.Model):
         if k_cat_idx is not None:
             assert len(k_cat_idx) <= len(k_cat_vocab_sz)
         if unk_cat_idx is not None:
-            assert len(unk_cat_idx) <= len(unk_cat_idx)
+            assert len(unk_cat_idx) <= len(unk_cat_vocab_sz)
         if k_num_idx is None and k_cat_idx is None:
             raise AttributeError('You need to pass at least one known numeric '
                                  'or categorical feature in the future. At minimum, '
